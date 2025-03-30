@@ -47,7 +47,7 @@ Contributions are welcome! Please follow these guidelines:
 5. Open a pull request.
 
 ## License
-This repository is licensed under the [MIT License](https://github.com/piyush1222p/DSA_Cpp/blob/master/LICENSE).
+This repository is licensed under the [LICENSE](https://github.com/piyush1222p/DSA_Cpp/blob/master/LICENSE).
 
 ## Contact Information
 For any inquiries, please reach out to the project maintainer at [PiyushShukla532@gmail.com]
