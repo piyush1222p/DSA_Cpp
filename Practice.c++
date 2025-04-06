@@ -44,3 +44,5 @@ bool isvalid(vector<int> &arr, int n, int m, int mid){
     }
     return painter<=m;
 }
+// Time Complexity: O(Nlog(sum))
+// Space Complexity: O(1)
