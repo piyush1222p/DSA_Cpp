@@ -1,7 +1,8 @@
 #include <iostream> // Include the input output stream
 #include <vector>   // Include the vector library
+#include <algorithm>
 using namespace std;
-vector<int> majority_element_brute_force(vector<int> &nums); // Function prototype for the majority_element_brute_force function
+vector<int> majority_element_optimal(vector<int> &nums); // Function prototype for the majority_element_optimal function
 int main(){
     int n;
     cout<<"Enter the size of the array: ";
@@ -13,30 +14,36 @@ int main(){
         cout<<"Enter element "<<i+1<<" ";
         cin>>nums[i];   // Input the elements of the array
     }
-    vector<int> result = majority_element_brute_force(nums); // Call the function to find the majority element
-    cout<<"The elements of the array are: ";
-    for (int i = 0; i < result.size(); i++)
-    {
-        cout<<result[i]<<" "; // Print the elements of the array
+    sort(nums.begin(),nums.end()); // Sort the array (O(nlogn)) <-- Optimal Approach
+    vector<int> result = majority_element_optimal(nums); // Call the function to find the majority element
+    if (!result.empty()){
+        cout<<"Majority element is "<<result[0]<<endl; // Print the majority element
+    }
+    else{
+        cout<<"No majority element found."<<endl; // Print if no majority element is found
     }
     cout<<endl;
 }
-vector<int> majority_element_brute_force(vector<int> &nums){
-    int n = nums.size();
-    for (int ele:nums)
+vector<int> majority_element_optimal(vector<int> &nums){
+    int size = nums.size(); // Store the size of the array
+    int freq=1;
+    int ans=nums[0];
+    for (int i = 1; i < size; i++)
     {
-        int freq=0;
-        for (int element:nums)
+        if (nums[i]==nums[i-1])
         {
-            if (element==ele)
-            {
-                freq++;
-            }
+            freq++;
         }
-        if (freq>n/2)
+        else
         {
-            return {ele}; // Return the majority element
+            freq=1;
+            ans=nums[i];
+        }
+        if (freq>size/2)
+        {
+            return {ans}; // Return the majority element if found
         }
     }
+    
     return {};
 }
