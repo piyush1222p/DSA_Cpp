@@ -1,51 +1,42 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
+#include <iostream> // Include the input output stream
+#include <vector>   // Include the vector library
 using namespace std;
-vector<int> pair_sum_sorted(vector<int> array,int target); // Function prototype
+vector<int> majority_element_brute_force(vector<int> &nums); // Function prototype for the majority_element_brute_force function
 int main(){
-    vector<int> array;
-    int n, num;
-    cout << "Enter the number of elements you want to enter: ";
-    cin >> n;
-    for (int i = 0; i < n; i++) {
-        cout << "Enter the number: ";
-        cin >> num;
-        array.push_back(num);
-    }
-    sort(array.begin(), array.end()); // Ensure the array is sorted
-    int target;
-    cout << "Enter the target element: ";
-    cin >> target;
-    vector<int> result=pair_sum_sorted(array,target);  // Call the function;
-    if (!result.empty()){
-        cout<<"The pair is: " << result[0] << " , " << result[1] << endl; // Print the pair
-    }
-    else{
-        cout << "No pair found." << endl;   // Print if no pair is found
-    }
-    return EXIT_SUCCESS;
-}
-vector<int> pair_sum_sorted(vector<int> array,int target){
-    vector<int> result;
-    int left = 0;
-    int right = array.size()-1;
-    while (left<right)
+    int n;
+    cout<<"Enter the size of the array: ";
+    cin>>n;
+    vector<int> nums(n);    // Declare a vector nums of size n to store the elements of the array
+    cout<<"Enter the elements of the array: \n";
+    for (int i = 0; i < n; i++)
     {
-        int pairsum = array[left]+array[right];
-        if (pairsum==target)
+        cout<<"Enter element "<<i+1<<" ";
+        cin>>nums[i];   // Input the elements of the array
+    }
+    vector<int> result = majority_element_brute_force(nums); // Call the function to find the majority element
+    cout<<"The elements of the array are: ";
+    for (int i = 0; i < result.size(); i++)
+    {
+        cout<<result[i]<<" "; // Print the elements of the array
+    }
+    cout<<endl;
+}
+vector<int> majority_element_brute_force(vector<int> &nums){
+    int n = nums.size();
+    for (int ele:nums)
+    {
+        int freq=0;
+        for (int element:nums)
         {
-            result.push_back(array[left]);
-            result.push_back(array[right]); // Store the pair
-            return result;
+            if (element==ele)
+            {
+                freq++;
+            }
         }
-        else if (pairsum<target)
+        if (freq>n/2)
         {
-            left++; // Move the left pointer
-        }
-        else{
-            right--;
+            return {ele}; // Return the majority element
         }
     }
-    return result;
+    return {};
 }
