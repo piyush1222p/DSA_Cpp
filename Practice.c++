@@ -23,13 +23,13 @@ int main(){
     return EXIT_SUCCESS;
 }
 bool is_prime(int size){
-    if (size<=1){
+    if (size<=1){// Check if the number is less than or equal to 1
         return false;
     }
-    else if (size==2){
+    else if (size==2){// Check if the number is 2
         return true;
     }
-    else{
+    else{// Check if the number is even
         for (int i = 2; i < size; i++){
             if (size%i==0){
                 return false;
