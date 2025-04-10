@@ -1,49 +1,28 @@
-#include <iostream> // Include the input output stream
-#include <vector>   // Include the vector library
-#include <algorithm>
+#include<iostream>
+#include<vector>
 using namespace std;
-vector<int> majority_element_optimal(vector<int> &nums); // Function prototype for the majority_element_optimal function
 int main(){
-    int n;
+    int size;
     cout<<"Enter the size of the array: ";
-    cin>>n;
-    vector<int> nums(n);    // Declare a vector nums of size n to store the elements of the array
-    cout<<"Enter the elements of the array: \n";
-    for (int i = 0; i < n; i++)
+    cin>>size;
+    vector<int> arr(size);
+    vector<int> arr1(size);
+    //taking input
+    for(int i=0;i<size;i++){
+        cout<<"Enter the number: ";
+        cin>>arr[i];
+    }
+    //sqr of each element
+    for (int i = 0; i < size; i++)
     {
-        cout<<"Enter element "<<i+1<<" ";
-        cin>>nums[i];   // Input the elements of the array
+        arr1[i]=arr[i]*arr[i];
     }
-    sort(nums.begin(),nums.end()); // Sort the array (O(nlogn)) <-- Optimal Approach
-    vector<int> result = majority_element_optimal(nums); // Call the function to find the majority element
-    if (!result.empty()){
-        cout<<"Majority element is "<<result[0]<<endl; // Print the majority element
-    }
-    else{
-        cout<<"No majority element found."<<endl; // Print if no majority element is found
+    //printing the sqr of each element
+    cout<<"The square of each element is: ";
+    for (int i = 0; i < size; i++)
+    {
+        cout<<arr1[i]<<" ";
     }
     cout<<endl;
-}
-vector<int> majority_element_optimal(vector<int> &nums){
-    int size = nums.size(); // Store the size of the array
-    int freq=1;
-    int ans=nums[0];
-    for (int i = 1; i < size; i++)
-    {
-        if (nums[i]==nums[i-1])
-        {
-            freq++;
-        }
-        else
-        {
-            freq=1;
-            ans=nums[i];
-        }
-        if (freq>size/2)
-        {
-            return {ans}; // Return the majority element if found
-        }
-    }
-    
-    return {};
+    return EXIT_SUCCESS;
 }
