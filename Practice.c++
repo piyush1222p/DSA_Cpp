@@ -7,7 +7,7 @@ void merge(vector<int> &arr1, vector<int> &arr2, vector<int> &merged);
 int main()
 {
     int size1, size2;
-    cout << "Enter the size of the first array: ";
+    cout << "Enter the size of the first array: \n";
     cin >> size1;
     vector<int> arr1(size1);
     cout << "Enter elements of the first array (sorted): ";
