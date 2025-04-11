@@ -1,47 +1,61 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
 using namespace std;
-vector<int> pair_sum_sorted(vector<int> array,int target);
-int main(){
-    vector<int> array;
-    int num,size,target;
-    cout<<"Enter the number of elements you want to enter: ";
-    cin>>size;
-    for (int i=0;i<size;i++){
-        cout<<"Enter the number: ";
-        cin>>num;
-        array.push_back(num);
+
+void merge(vector<int> &arr1, vector<int> &arr2, vector<int> &merged);
+
+int main()
+{
+    int size1, size2;
+    cout << "Enter the size of the first array: ";
+    cin >> size1;
+    vector<int> arr1(size1);
+    cout << "Enter elements of the first array (sorted): ";
+    for (int i = 0; i < size1; i++) {
+        cin >> arr1[i];
     }
-    sort(array.begin(),array.end());
-    cout<<"Enter the target element: ";
-    cin>>target;
-    vector<int> result = pair_sum_sorted(array,target);
-    if (!result.empty()){
-        cout<<"The pair is: "<<result[0]<<" , "<<result[1]<<endl;
+
+    cout << "Enter the size of the second array: ";
+    cin >> size2;
+    vector<int> arr2(size2);
+    cout << "Enter elements of the second array (sorted): ";
+    for (int i = 0; i < size2; i++) {
+        cin >> arr2[i];
     }
-    else{
-        cout<<"No pair found."<<endl;
+
+    vector<int> merged(size1 + size2);
+    merge(arr1, arr2, merged);
+
+    cout << "Merged Array: ";
+    for (int element : merged) {
+        cout << element << " ";
     }
-    return EXIT_SUCCESS;
+    return 0;
 }
-vector<int> pair_sum_sorted(vector<int> array,int target){
-    vector<int> result;
-    int left = 0;
-    int right = array.size()-1;
-    while (left<right){
-        int pairsum = array[left]+array[right];
-        if (pairsum==target){
-            result.push_back(array[left]);
-            result.push_back(array[right]);
-            return result;
+
+void merge(vector<int> &arr1, vector<int> &arr2, vector<int> &merged)
+{
+    int i = 0, j = 0, k = 0;
+
+    while (i < arr1.size() && j < arr2.size())
+    {
+        if (arr1[i] < arr2[j])
+        {
+            merged[k++] = arr1[i++];
         }
-        else if (pairsum<target){
-            left++;
-        }
-        else{
-            right--;
+        else
+        {
+            merged[k++] = arr2[j++];
         }
     }
-    return result;
+
+    while (i < arr1.size())
+    {
+        merged[k++] = arr1[i++];
+    }
+
+    while (j < arr2.size())
+    {
+        merged[k++] = arr2[j++];
+    }
 }
