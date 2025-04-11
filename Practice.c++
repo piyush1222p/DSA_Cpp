@@ -37,27 +37,24 @@ int main()
 
 void merge(vector<int> &arr1, vector<int> &arr2, vector<int> &merged)
 {
-    int i = 0, j = 0, k = 0;
-
-    while (i < arr1.size() && j < arr2.size())
+    int i=0,j=0,k=0;
+    while (i<arr1.size() && j<arr2.size())
     {
-        if (arr1[i] < arr2[j])
+        if (arr1[i]<arr2[j])
         {
-            merged[k++] = arr1[i++];
+            merged[k++]=arr1[i++];
         }
         else
         {
-            merged[k++] = arr2[j++];
+            merged[k++]=arr2[j++];
         }
     }
-
-    while (i < arr1.size())
+    while (i<arr1.size())
     {
-        merged[k++] = arr1[i++];
+        merged[k++]=arr1[i++];
     }
-
-    while (j < arr2.size())
+    while (j<arr2.size())
     {
-        merged[k++] = arr2[j++];
+        merged[k++]=arr2[j++];
     }
 }
