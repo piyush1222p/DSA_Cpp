@@ -12,6 +12,7 @@ int main()
     vector<int> arr1(size1);
     cout << "Enter elements of the first array (sorted): ";
     for (int i = 0; i < size1; i++) {
+        cout<<"Enter the element "<<i+1<<": ";
         cin >> arr1[i];
     }
 
@@ -20,6 +21,7 @@ int main()
     vector<int> arr2(size2);
     cout << "Enter elements of the second array (sorted): ";
     for (int i = 0; i < size2; i++) {
+        cout<<"Enter the element "<<i+1<<": ";
         cin >> arr2[i];
     }
 
