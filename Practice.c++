@@ -16,10 +16,10 @@ int main()
         cin >> arr1[i];
     }
 
-    cout << "Enter the size of the second array: ";
+    cout << "Enter the size of the second array: \n";
     cin >> size2;
     vector<int> arr2(size2);
-    cout << "Enter elements of the second array (sorted): ";
+    cout << "Enter elements of the second array: \n";
     for (int i = 0; i < size2; i++) {
         cout<<"Enter the element "<<i+1<<": ";
         cin >> arr2[i];
