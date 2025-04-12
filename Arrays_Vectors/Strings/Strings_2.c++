@@ -1,18 +1,21 @@
 #include <iostream>
 using namespace std;
-int main(){
+
+int main() {
+    // Declare two string variables
     string str1;
     string str2;
 
+    // Ask the user to enter the first string
     cout << "Enter the first string: ";
-    getline(cin,str1);
+    getline(cin, str1); // Read the full line of input into str1
 
-    for (int i = 0; i < str1.length(); i++)
-    {
-        cout<<str1[i]<<" "; // Prints the string character by character
+    // Loop through each character in the string
+    for (int i = 0; i < str1.length(); i++) {
+        cout << str1[i] << " "; // Print each character with a space
     }
 
-    cout<<endl; // Prints a new line
-    cout<<str1<<endl; // Prints the string
-    return 0;
+    cout << endl; // Print a new line
+    cout << str1 << endl; // Print the entire string
+    return 0; // End the program
 }
