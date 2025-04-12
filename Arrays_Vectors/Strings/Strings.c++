@@ -17,5 +17,9 @@ int main(){
     cout<<str3.length()<<endl; // Prints the length of the concatenated string
     cout<<str3.size()<<endl; // Prints the size of the concatenated string
     cout<<str3.capacity()<<endl; // Prints the capacity of the concatenated string
+
+    cout<<(str3<str1)<<endl; // Compares two strings and prints 0 or 1 (false or true)
+    cout<<(str3>str1)<<endl; // Compares two strings and prints 0 or 1 (false or true)
+    cout<<(str3==str1)<<endl; // Compares two strings and prints 0 or 1 (false or true)
     return 0;
 }
