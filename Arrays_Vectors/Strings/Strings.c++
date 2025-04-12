@@ -13,5 +13,9 @@ int main(){
 
     string str3=str1+" "+Str; // Concatenating two strings with a space in between
     cout<<str3<<endl; // Prints the concatenated string
+    
+    cout<<str3.length()<<endl; // Prints the length of the concatenated string
+    cout<<str3.size()<<endl; // Prints the size of the concatenated string
+    cout<<str3.capacity()<<endl; // Prints the capacity of the concatenated string
     return 0;
 }
