@@ -21,12 +21,16 @@ int main(){
     cin.getline(str2,100,'.');  //pass the specified length and a delimeter(stops the value to be print)
     cout<<"output: "<<str2<<endl;
 
+    char str4[100];
+    int len=0;
     cout<<"Enter the string value: "<<endl;
-    cin.getline(str3,12);
-    for (char ele:str3)
+    cin.getline(str4,100,'.'); //taking input from the user.
+
+    for (int i = 0; i < str4[i]!='\0'; i++)
     {
-        cout<<ele<<" ";
+        len++;//Counting the length of the string it also counts the space b/w the string and the null character.
     }
-    cout<<endl;
+    
+    cout<<"Length of the string is: "<<len<<endl;
     return 0;
 }
