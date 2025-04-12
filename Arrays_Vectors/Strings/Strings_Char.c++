@@ -1,36 +1,41 @@
 #include <iostream>
-#include <string.h> //includes this header file for using string properties
+#include <string.h> // For string manipulation functions
 using namespace std;
-int main(){
-    //character arrays are also known as cstring.
-    char str[] = {'a','b','c','d','\0'}; //As we know that there must be some ASCII value associated with these characters.
-    int arr[] = {1,2,3};
 
-    cout<<arr<<endl;
-    cout<<str<<endl; //combine value of the string is returned only when null character is in the array.
-    cout<<strlen(str);  //returns the len of the string
+int main() {
+    // Example of a character array (C-string)
+    char str[] = {'a', 'b', 'c', 'd', '\0'}; // Null character marks the end of the string
+    int arr[] = {1, 2, 3}; // Example of an integer array
 
-    //literal assign to the array
+    // Printing the integer array and character array
+    cout << arr << endl; // Prints the memory address of the integer array
+    cout << str << endl; // Prints the string (up to the null character)
+    cout << strlen(str); // Prints the length of the string (excluding the null character)
+
+    // Assigning a string literal to a character array
     char str1[] = "hello";
-    cout<<str1[2]<<endl;
+    cout << str1[2] << endl; // Accessing and printing the third character of the string
 
-    //taking user input and displaying it.
-    char str2[100];
-    char str3[12];
-    cout<<"Enter the string value: "<<endl;
-    cin.getline(str2,100,'.');  //pass the specified length and a delimeter(stops the value to be print)
-    cout<<"output: "<<str2<<endl;
+    // Taking user input and displaying it
+    char str2[100]; // Array to store user input
+    char str3[12];  // Another array (not used in this example)
+    cout << "Enter the string value: " << endl;
+    cin.getline(str2, 100, '.'); // Reads input until the delimiter '.' or max length
+    cout << "output: " << str2 << endl; // Prints the user input
 
-    char str4[100];
-    int len=0;
-    cout<<"Enter the string value: "<<endl;
-    cin.getline(str4,100,'.'); //taking input from the user.
+    // Calculating the length of a user-input string manually
+    char str4[100]; // Array to store user input
+    int len = 0;    // Variable to store the length of the string
+    cout << "Enter the string value: " << endl;
+    cin.getline(str4, 100, '.'); // Reads input until the delimiter '.' or max length
 
-    for (int i = 0; i < str4[i]!='\0'; i++)
-    {
-        len++;//Counting the length of the string it also counts the space b/w the string and the null character.
+    // Loop to count the length of the string (including spaces)
+    for (int i = 0; str4[i] != '\0'; i++) {
+        len++; // Increment length for each character
     }
-    
-    cout<<"Length of the string is: "<<len<<endl;
+
+    // Printing the calculated length of the string
+    cout << "Length of the string is: " << len << endl;
+
     return 0;
 }
