@@ -10,5 +10,7 @@ int main(){
     cout<<name.find("o", 5)<<endl; // Output: -1 (not found after index 5)
     cout<<name.find("o", 0, 2)<<endl; // Output: 1 (searches for "o" starting from index 0, but only checks the first 2 characters)
 
+    cout<<name.erase(0,4)<<endl; // Output: " Doe" (removes first 3 characters)
+    cout<<name.erase(0,1)<<endl; // Output: "Doe"
     return 0;
 }
