@@ -10,6 +10,10 @@ int main(){
     return 0;
 }
 string isprime(int n){
+    if(n<=1 || n<=0)
+    {
+        return "Not prime";
+    }
     for (int i = 2; i*i <= n; i++)
     {
         if (n%i==0)
