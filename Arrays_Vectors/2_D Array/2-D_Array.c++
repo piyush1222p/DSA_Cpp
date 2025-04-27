@@ -22,7 +22,7 @@ int main(){
     }
 
     cout<<endl;// printing the new line
-    
+
     // printing the 2-D array
     for (int i = 0; i < row; i++)// iterating through the rows
     {
