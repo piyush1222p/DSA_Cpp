@@ -15,7 +15,7 @@ int main(){
     cout<<"Enter the element to be searched: "<<endl;// taking input from the user for target element
     cin>>target;// taking input from the user for target element
     pair<int,int>result = linear_search(arr,row,cols,target);// calling the function linear_search to search the element in the array
-    if (result.first!=-1){
+    if ((result.first and result.second) !=-1){
         cout<<"Element found at the index "<<result.first<<","<<result.second<<endl;// if the element is found print the index of the element
     }
     else{
