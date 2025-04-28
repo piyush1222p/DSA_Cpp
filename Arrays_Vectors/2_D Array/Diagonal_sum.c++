@@ -11,16 +11,10 @@ int diagonal_sum(int arr[][3],int row,int cols){
     int sum=0;
     for (int i = 0; i < row; i++)
     {
-        for (int j = 0; j < cols; j++)
+        sum+=arr[i][i];// calculating the sum of the diagonal
+        if (i!=cols-i-1)//checking if the index is not equal to the anti-diagonal index
         {
-            if (i==j)
-            {
-                sum+=arr[i][j];// calculating the sum of the diagonal elements
-            }
-            else if (j==row-i-1)
-            {
-                sum+=arr[i][j];
-            }
+            sum+=arr[i][cols-i-1];// calculating the sum of the anti-diagonal
         }
     }
     return sum;
