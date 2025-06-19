@@ -1,16 +1,42 @@
-#include <iostream>
+#include<iostream>
+#include<algorithm>
+#include<vector>
 using namespace std;
+bool ispossible(vector<int> &arr,int m,int n ,int mid){
+    int cows=1;
+    int pos=arr[0];
+    for (int i = 0; i < n; i++)
+    {
+        if (arr[i]-pos>=mid)
+        {
+            cows++;
+            pos=arr[i];
+        }
+        if (cows==m)
+        {
+            return true;
+        }
+    }
+    return false;
+}
+int cowshed(vector<int> &arr,int m,int n){
+    int st=0,end=arr[n-1]-arr[0],ans=-1;
+    sort(arr.begin(),arr.end());
+    while(end>=st){
+        int mid=st+(end-st)/2;
+        if(ispossible(arr,m,n,mid)){
+            ans=mid;
+            st=mid+1;
+        }
+        else{
+            end=mid-1;
+        }
+    }
+    return ans;
+}
 int main(){
-    string name = "John Doe";
-    cout<<name.find("J")<<endl; // Output: 0
-    cout<<name.find("o")<<endl; // Output: 1
-    cout<<name.find("D")<<endl; // Output: 4
-    cout<<name.find("x")<<endl; // Output: -1 (not found)
-    cout<<name.find("o", 2)<<endl; // Output: 3 (search starts from index 2)
-    cout<<name.find("o", 5)<<endl; // Output: -1 (not found after index 5)
-    cout<<name.find("o", 0, 2)<<endl; // Output: 1 (searches for "o" starting from index 0, but only checks the first 2 characters)
-
-    cout<<name.erase(0,4)<<endl; // Output: " Doe" (removes first 3 characters)
-    cout<<name.erase(0,1)<<endl; // Output: "Doe"
+    vector<int> arr={1,2,8,4,9};
+    int n=5,m=3;
+    cout<<cowshed(arr,m,n); // Find and print the largest minimum distance
     return 0;
 }
