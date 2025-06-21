@@ -18,7 +18,7 @@ int main() {
 bool ispossible(vector<int> &arr, int n, int m, int mid) {
     int cows = 1; // Place the first cow in the first stall
     int pos = arr[0]; // Position of the last placed cow
-    for (int i = 0; i < n; i++) {
+    for (int i = 1; i < n; i++) {
         if (arr[i] - pos >= mid) { // Check if the current stall is at least 'mid' distance from the last placed cow
             cows++; // Place another cow
             pos = arr[i]; // Update the position of the last placed cow
