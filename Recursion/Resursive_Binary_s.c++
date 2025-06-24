@@ -11,6 +11,7 @@ int main(){
     if(!result)cout<<"Element not found.\n";
     else cout<<"Element found at index: "<<result<<"\n";
     return EXIT_SUCCESS;
+    
 }
 int bs(vector<int> &arr,int tar,int low,int high){
     if(high>=low){
