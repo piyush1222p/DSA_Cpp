@@ -5,7 +5,7 @@ using namespace std;
 void helper(vector<vector<int>> &mat,int row,int col,string path,vector<string> &ans,vector<vector<bool>> &visited){
     //Base Case
     int size = mat.size();
-    if(row<0 || row>=mat.size() || col<0 || col>=mat.size() || mat[row][col]==0)return;
+    if(row<0 || row>=size || col<0 || col>=size || mat[row][col]==0 || visited[row][col]==true)return;
     if(row==size-1 && col==size-1){
         ans.push_back(path);
         return;
@@ -39,7 +39,6 @@ int main(){
     vector<vector<int>> mat = {{1,0,0,0},{1,1,0,1},{1,1,0,0},{0,1,1,1}};
     int size = mat.size();
     vector<string> ans = findPath(mat);
-    vector<vector<bool>> visited(size,vector<bool>(size,false));
     for(const string &path : ans){
         cout << path << endl;
     }
