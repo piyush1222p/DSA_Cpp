@@ -2,36 +2,35 @@
 #include <vector>
 using namespace std;
 
-void helper(vector<vector<int>> &mat,int row,int col,string path,vector<string> &ans,vector<vector<bool>> &visited){
+void helper(vector<vector<int>> &mat,int row,int col,string path,vector<string> &ans){
     //Base Case
     int size = mat.size();
-    if(row<0 || row>=size || col<0 || col>=size || mat[row][col]==0 || visited[row][col]==true)return;
+    if(row<0 || row>=size || col<0 || col>=size || mat[row][col]==0 || mat[row][col]==-1)return;
     if(row==size-1 && col==size-1){
         ans.push_back(path);
         return;
     }
     //Mark the cell as visited
-    visited[row][col]=true;
+    mat[row][col]=-1;
 
     //Down
-    helper(mat,row+1,col,path+"D",ans,visited);
+    helper(mat,row+1,col,path+"D",ans);
     //Up
-    helper(mat,row-1,col,path+"U",ans,visited);
+    helper(mat,row-1,col,path+"U",ans);
     //Right
-    helper(mat,row,col+1,path+"R",ans,visited);
+    helper(mat,row,col+1,path+"R",ans);
     //Left
-    helper(mat,row,col-1,path+"L",ans,visited);
+    helper(mat,row,col-1,path+"L",ans);
     
     //Backtrack
-    visited[row][col]=false;
+    mat[row][col]=1;
 }
 vector<string> findPath(vector<vector<int>> &mat){
     int size = mat.size();
     vector<string> ans;
     string path = "";
-    vector<vector<bool>> visited(size,vector<bool>(size,false));
     
-    helper(mat,0,0,path,ans,visited);
+    helper(mat,0,0,path,ans);
     
     return ans;
 }
