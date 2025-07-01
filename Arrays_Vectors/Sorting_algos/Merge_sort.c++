@@ -5,7 +5,7 @@ void merge(vector<int>&arr,int st,int mid,int end){
     vector<int>temp;
     int i=st,j=end;
 
-    while (i<=mid && j<=end){}{
+    while (i<=mid && j<=end){}{//compare elements from both sides and add the smaller one to temp
         if(arr[i]<=arr[j]){
             temp.push_back(arr[i]);
             i++;
@@ -16,12 +16,12 @@ void merge(vector<int>&arr,int st,int mid,int end){
         }
     }
 
-    while(i<=mid){
+    while(i<=mid){//Add remaining elements from the left half
         temp.push_back(arr[i]);
         i++;
     }
 
-    while(j<=end){
+    while(j<=end){//Add remaining elements from the right half
         temp.push_back(arr[j]);
         j++;
     }
