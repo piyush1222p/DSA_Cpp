@@ -5,7 +5,7 @@ int partition(vector<int>&arr,int st,int end){
     int pivot = arr[end];
     int idx = st-1;
     for(int j=st;j<end;j++){
-        if(arr[j]<=pivot){
+        if(arr[j]<=pivot){//if we change the sign to >=, it will sort in descending order
             idx++;
             swap(arr[idx],arr[j]);
         }
