@@ -35,6 +35,9 @@ void Merge_sort(vector<int>&arr,int st,int end){
 
         //Sort the right half
         Merge_sort(arr,mid+1,end);
+
+        //Merge the two halves
+        merge(arr,st,mid,end);
     }
 }
 int main(){
