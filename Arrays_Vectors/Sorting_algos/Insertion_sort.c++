@@ -44,4 +44,4 @@ void insertion_sort(int arr[], int n) {
         arr[prev + 1] = current_element; // Place the current element at its correct position
     }
 }
-/*Time complexity = O(nlogn)*/
+/*Time complexity = O(n^2)*/
