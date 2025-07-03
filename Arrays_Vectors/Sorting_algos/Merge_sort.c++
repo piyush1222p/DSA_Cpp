@@ -2,10 +2,10 @@
 #include <vector>
 using namespace std;
 void merge(vector<int>&arr,int st,int mid,int end){
-    vector<int>temp;
-    int i=st,j=mid+1;
+    vector<int>temp;//Temp array to store merge results
+    int i=st,j=mid+1;//pointer for left and right halves
 
-    while (i<=mid && j<=end){//compare elements from both sides and add the smaller one to temp
+    while (i<=mid && j<=end){//compare elements from both sides of the array ex. ({12,11,13,,5,6,7})and add the smaller one to temp
         if(arr[i]<=arr[j]){
             temp.push_back(arr[i]);
             i++;
