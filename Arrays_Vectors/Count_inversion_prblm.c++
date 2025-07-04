@@ -66,4 +66,7 @@ int main() {
     cout << "Number of inversions: " << ans << endl; // Output the result
     return 0;
 }
-/* Time Complexity = O(n
+/* Time Complexity = O(n logn)
+   Space Complexity = O(n) for the temporary array used in merging
+   The algorithm efficiently counts inversions while sorting the array using merge sort.
+*/
