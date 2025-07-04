@@ -1,58 +1,69 @@
 #include<iostream>
 #include<vector>
 using namespace std;
-int merge(vector<int>&arr,int st,int end,int mid){
-    vector<int>temp;
-    int i=st,j=mid+1;
-    int count_inversion = 0;//keep the count of inversions
-    while(i<=mid && j<=end){
-        if(arr[i]<=arr[j]){
+
+// Merge two sorted subarrays and count inversions
+int merge(vector<int>& arr, int st, int end, int mid) {
+    vector<int> temp; // Temporary array to store merged result
+    int i = st, j = mid + 1;
+    int count_inversion = 0; // Count of inversions
+
+    // Merge the two subarrays while counting inversions
+    while (i <= mid && j <= end) {
+        if (arr[i] <= arr[j]) {
             temp.push_back(arr[i]);
             i++;
-        }
-        else{
+        } else {
             temp.push_back(arr[j]);
             j++;
-            count_inversion+=(mid-i+1);//count inversions
+            count_inversion += (mid - i + 1); // All remaining elements in left subarray are greater
         }
     }
 
-    while(i<=mid){
+    // Copy any remaining elements from the left subarray
+    while (i <= mid) {
         temp.push_back(arr[i]);
         i++;
     }
 
-    while(j<=end){
+    // Copy any remaining elements from the right subarray
+    while (j <= end) {
         temp.push_back(arr[j]);
         j++;
     }
 
-    for (int i = 0; i < temp.size(); i++)
-    {
-        arr[st+i]=temp[i];
+    // Copy the merged elements back to the original array
+    for (int k = 0; k < temp.size(); k++) {
+        arr[st + k] = temp[k];
     }
-    return count_inversion;
+    return count_inversion; // Return the number of inversions found in this merge
 }
-int Merge_sort(vector<int>&arr,int st,int end){
+
+// Recursive merge sort function that returns inversion count
+int Merge_sort(vector<int>& arr, int st, int end) {
     int InvCount = 0; // Initialize inversion count
-    if(end>st){
-        int mid = st+(end-st)/2;
-        
-        InvCount += Merge_sort(arr,st,mid);//left inversion count
-        
-        InvCount += Merge_sort(arr,mid+1,end);//right inversion count
-        
-        InvCount += merge(arr,st,end,mid);//count cross inversions
-        
-        return InvCount; // Return total inversion count
+    if (end > st) {
+        int mid = st + (end - st) / 2;
+
+        // Count inversions in the left half
+        InvCount += Merge_sort(arr, st, mid);
+
+        // Count inversions in the right half
+        InvCount += Merge_sort(arr, mid + 1, end);
+
+        // Count cross inversions while merging
+        InvCount += merge(arr, st, end, mid);
+
+        return InvCount; // Return total inversion count for this segment
     }
-    return 0; // Return 0 if no inversions found
+    return 0; // No inversions if the segment has one or zero elements
 }
-int main(){
-    vector<int> arr = {12, 11, 13, 5, 6, 7};
-    
-    int ans = Merge_sort(arr, 0, arr.size() - 1);
-    cout << "Number of inversions: " << ans << endl;
+
+int main() {
+    vector<int> arr = {12, 11, 13, 5, 6, 7}; // Input array
+
+    int ans = Merge_sort(arr, 0, arr.size() - 1); // Get inversion count
+    cout << "Number of inversions: " << ans << endl; // Output the result
     return 0;
 }
-/*Time Complexity = O(nlog n)*/
+/* Time Complexity = O(n
