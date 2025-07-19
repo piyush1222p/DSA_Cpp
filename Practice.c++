@@ -88,4 +88,5 @@ int main(){
     ll.pop_back();
 
     ll.print();
+    return 0;
 }
