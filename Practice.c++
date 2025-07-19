@@ -6,32 +6,42 @@ class Node{
         Node* next;
 
         Node(int val){
-            data=val;
-            next=NULL;
+            data = val;
+            next =NULL;
         }
 };
-class List{
+class list{
     private:
-        Node*head;
-        Node*tail;
+        Node* head;
+        Node* tail;
+    
     public:
-        List(){
+        list(){
             head=tail=NULL;
         }
+
         void push_front(int val){
-            Node*newnode = new Node(val);
-            if(head==NULL){
+            Node* newnode = new Node(val);
+            if(head==NULL){//head == NULL
                 head=tail=newnode;
                 return;
             }
-            else{
-                newnode->next=head;
-                head=newnode;
+            //head !=NULL
+            newnode->next=head;
+            head=newnode;
+        }
+        void push_back(int val){
+            Node* newnode = new Node(val);
+            if(head==NULL){
+                head=tail=NULL;
+                return;
             }
+            tail->next=newnode;
+            tail=newnode;
         }
         void pop_front(){
             if(head==NULL){
-                cout<<"The linkedlist is empty!!"<<endl;
+                cout<<"LL is empty!!"<<endl;
                 return;
             }
             Node* temp = head;
@@ -39,50 +49,34 @@ class List{
             temp->next = NULL;
             delete temp;
         }
-        void push_back(int val){
-            Node*newnode = new Node(val);
-            if(head==NULL){
-                head=tail=newnode;
-                return;
-            }
-            else{
-                tail->next=newnode;
-                tail=newnode;
-            }
-        }
         void pop_back(){
             if(head==NULL){
-                cout<<"The Linkedlist is empty!!"<<endl;
+                cout<<"LL is empty!!"<<endl;
                 return;
             }
-            
-            if(head==tail){
-                delete tail;
-                head=tail=NULL;
-                return;
+            Node* temp = head;
+            while(temp->next!=tail){
+                temp=temp->next;
             }
-
-            else{
-                Node*temp = head;
-                while(temp->next->next!=NULL){
-                    temp=temp->next;
-                }
-            }
+            temp->next=NULL;
+            delete tail;
+            tail=temp;
         }
         void print(){
-            Node*temp = head;
-            while (temp!=NULL){
-               cout<<temp->data<<"->";
-               temp=temp->next; 
+            Node* temp = head;
+            while(temp!=NULL){
+                cout<<temp->data<<"->";
+                temp = temp->next;
             }
-            cout<<"NULL"<<endl;
+            cout<<"NULL\n";
         }
 };
 int main(){
-    List ll;
+    list ll;
+    
     ll.push_front(21);
+    ll.push_front(22);
     ll.push_front(23);
-    ll.push_front(34);
 
     ll.push_back(1);
     ll.push_back(2);
@@ -90,5 +84,8 @@ int main(){
 
     ll.print();
 
-    return 0;
+    ll.pop_front();
+    ll.pop_back();
+
+    ll.print();
 }
