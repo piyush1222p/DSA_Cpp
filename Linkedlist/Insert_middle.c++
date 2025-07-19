@@ -32,7 +32,7 @@ class List{
                 Head = newNode;
             }
         }
-        void insert(int val,int pos){
+        void insert_middle(int val,int pos){
             if(pos<0)return;
             else if(pos==0){
                 push_front(val);
