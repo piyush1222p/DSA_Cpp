@@ -76,5 +76,8 @@ int main(){
 
     ll.print();
 
+    cout<<ll.search(22)<<"\n";
+    cout<<ll.search(3)<<"\n";
+
     return 0;
 }
