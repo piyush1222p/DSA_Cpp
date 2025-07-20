@@ -62,6 +62,26 @@ class list{
             delete tail;
             tail=temp;
         }
+        void insert_middle(int val,int pos){
+            if(pos<0)return;
+            else if(pos==0){
+                push_front(val);
+                return;
+            }
+            else{
+                Node* temp = head;
+                for(int i = 0; i<pos-1;i++){
+                    if(temp==NULL){
+                        cout<<"Invalid Position!!"<<endl;
+                        return;
+                    }
+                    temp=temp->next;
+                }
+                Node* NewNode = new Node(val);
+                NewNode->next=temp->next;
+                temp->next=NewNode;
+            }
+        }
         void print(){
             Node* temp = head;
             while(temp!=NULL){
@@ -84,8 +104,12 @@ int main(){
 
     ll.print();
 
-    ll.pop_front();
-    ll.pop_back();
+    // ll.pop_front();
+    // ll.pop_back();
+
+    ll.print();
+
+    ll.insert_middle(90,4);
 
     ll.print();
     return 0;
