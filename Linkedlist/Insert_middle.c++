@@ -39,7 +39,7 @@ class List{
                 return;
             }
             else{
-                Node*temp = Head;
+                Node* temp = Head;
                 for(int i=0;i<pos-1;i++){
                     if(temp==NULL){
                         cout<<"Invalid Position!\n";
@@ -48,12 +48,12 @@ class List{
                     temp=temp->next;
                 }
                 Node* newNode = new Node(val);
-                newNode->next = temp->next;
-                temp->next = newNode;
+                newNode->next = temp->next;//retain the value of the left over elements in LL
+                temp->next = newNode;//assigning the newnode value to the temp.next ptr
             }
         }
         void print(){
-            Node*temp = Head;
+            Node* temp = Head;
             while(temp!=NULL){
                 cout<<temp->data<<"->";
                 temp=temp->next;
@@ -63,4 +63,15 @@ class List{
 }
 int main(){
     List ll;
+    ll.push_front(23);
+    ll.push_front(23);
+    ll.push_front(23);
+
+    ll.print();
+
+    ll.insert_middle(1);
+    ll.insert_middle(2);
+    ll.insert_middle(3);
+
+    ll.print();
 }
