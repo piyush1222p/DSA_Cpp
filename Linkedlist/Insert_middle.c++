@@ -60,7 +60,7 @@ class List{
             }
             cout<<"NULL"<<endl;
         }
-}
+};
 int main(){
     List ll;
     ll.push_front(23);
@@ -69,9 +69,9 @@ int main(){
 
     ll.print();
 
-    ll.insert_middle(1);
-    ll.insert_middle(2);
-    ll.insert_middle(3);
+    ll.insert_middle(1,2);
+    ll.insert_middle(2,3);
+    ll.insert_middle(3,5);
 
     ll.print();
 }
