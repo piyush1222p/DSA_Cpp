@@ -5,10 +5,13 @@ using namespace std;
 int main(){
     // Pair in C++ STL
     pair<int, int> p1 = {1, 2};  // Creating a pair of integers
+    pair<double, double> p3 = make_pair(2.34,2.45);
 
     // Accessing the pair values
     cout << "First value: " << p1.first << endl;  // Accessing the first value of the pair
     cout << "Second value: " << p1.second << endl;  // Accessing the second value of the pair
+
+    cout<<p3.first<<" "<<p3.second<<endl;
 
     // Pair of pair
     pair<int, pair<int, int>> p2 = {1, {2, 3}};  // Creating a pair where the second element is another pair
