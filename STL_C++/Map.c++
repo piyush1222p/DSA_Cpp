@@ -30,8 +30,8 @@ void map1(){
     cout << "Size of map after deletion: " << m.size() << endl;
 
     // Check if the key "abc:" is present in the map
-    if (m.find("abc:") != m.end()) {
-        cout << "Key is present" << endl;
+    if (m.find("ghi:") != m.end()) {
+        cout << "Key is present "<< m.at("ghi:") << endl;
     } else {
         cout << "Key is not present" << endl;
     }
