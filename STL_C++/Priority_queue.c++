@@ -3,8 +3,8 @@
 #include <queue>
 using namespace std;
 int main(){
-    priority_queue<int> Age;
-    priority_queue<int,vector<int>,greater<int>> Age3;
+    priority_queue<int> Age;//max-heap data structure
+    priority_queue<int,vector<int>,greater<int>> Age3;//min-heap data structure
 
     /*Priority Queue: The element with the highest priority is served first*/
 

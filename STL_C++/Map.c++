@@ -3,7 +3,7 @@
 
 using namespace std; // Use the standard namespace
 
-int main() {
+void map1(){
     map<string, int> m; // Declare a map with string keys and integer values
 
     // Insert key-value pairs into the map
@@ -47,6 +47,9 @@ int main() {
     for (auto ele : m) {
         cout << ele.first << " " << ele.second << endl;
     }
-
+}
+int main() {
+    map1();
+    
     return 0; // Return 0 to indicate successful execution
 }

@@ -48,6 +48,21 @@ int main()
     // Back Function in vector C++
     cout << "Back Element: " << Age.back() << endl;    // Prints the last element of the vector
 
+    //iterator in vector
+        //this iterator is the pointer address refrence to the first or after last element in the vector
+    vector<int>::iterator begin_itr = Age.begin();
+    vector<int>::iterator last_itr = Age.end();
+
+    for(vector<int>::iterator i=begin_itr; i<last_itr;i++){
+        cout<<*i<<" ";
+    }
+    cout<<endl;
+
+    for(auto ele:Age){
+        cout<<ele<<" ";
+    }
+    cout<<endl;
+
     // at Function in vector C++
     cout << "Element at index 0: " << Age.at(0) << endl;    // Prints the element at particular index
     cout << "Element at index 1: " << Age.at(1) << endl;
