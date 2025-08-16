@@ -1,6 +1,6 @@
 #include <iostream> // Include the iostream library for input and output
 #include <map> // Include the map library for using the map container
-
+#include <bits/stdc++.h>
 using namespace std; // Use the standard namespace
 
 void map1(){
@@ -48,8 +48,24 @@ void map1(){
         cout << ele.first << " " << ele.second << endl;
     }
 }
+void multi_map1(){
+    multimap <int,string> mm;
+
+    mm.insert({1,"Piyush"});
+    mm.insert({1,"Aman"});
+    mm.insert({2,"Santosh"});
+    mm.insert({2,"Rakshas"});
+    mm.insert({3,"Dant kanti"});
+    mm.insert({3,"Elish"});
+
+    auto it = mm.equal_range(2);//same key elements
+
+    for(auto i = it.first; i!=it.second; i++){
+        cout<<(*i).first<<"-->"<<(*i).second<<endl;
+    }
+}
 int main() {
-    map1();
+    multi_map1();
     
     return 0; // Return 0 to indicate successful execution
 }
